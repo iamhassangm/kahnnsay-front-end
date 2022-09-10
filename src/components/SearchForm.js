@@ -4,7 +4,7 @@ import SearchResults from './SearchResults.js';
 
 
 export default function SearchForm(props) {
-  const APP_URL = "http://localhost:3000/api/v1/";
+  const APP_URL = "http://localhost:3000/api/v1";
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   

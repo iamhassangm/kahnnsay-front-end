@@ -1,4 +1,5 @@
-import React from 'react';
+import { React, useEffect, useState } from 'react';
+import axios from 'axios';
 import Book from './Book.js';
 
 export default function SearchResults(props) {
@@ -6,7 +7,7 @@ export default function SearchResults(props) {
         <div>
         {props.results.map(book => {
           return (
-            <Book details={book} />
+            <Book id={book.id} key={book.id}/>
           );
         })}
        </div>
