@@ -1,5 +1,6 @@
 import { useEffect, useState, React } from 'react';
 import axios from 'axios';
+import Library from './Library.js';
 
 export default function Book(props) {
 
@@ -31,7 +32,10 @@ export default function Book(props) {
         Available at: 
         <ul>
         {bookDetails.libraries.map((loc) => {
-           return <li>{loc}</li>
+           return <li>
+          {loc}
+          <Library id={1}/>
+          </li>
         })}
         </ul>
    
