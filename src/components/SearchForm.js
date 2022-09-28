@@ -17,8 +17,8 @@ export default function SearchForm(props) {
   return (
     <div>
       <input onChange={(e) => setQuery(e.target.value)}></input>
-    <button onClick={() => searchBooks(query)}>Search</button>
-    <SearchResults results={results} />
+      <button onClick={() => searchBooks(query)}>Search</button>
+      <SearchResults results={results} />
     </div>
   )
 }

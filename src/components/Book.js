@@ -1,9 +1,11 @@
-import { useEffect, useState, React } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { pagesMapping, RoutingContext } from '../context/Routing'
 import axios from 'axios';
-import Library from './Library.js';
+import LibraryCard from './LibraryCard.js';
 
 export default function Book(props) {
-
+  const { setPage, setPayload } = useContext(RoutingContext)
+  
   const API_URL = "http://localhost:3000/api/v1";
   const [bookDetails, setBookDetails] = useState(null);
 
@@ -12,7 +14,11 @@ export default function Book(props) {
     .then((resp) => { setBookDetails(resp.data) })
     .catch((e) => console.log("Error from Book comp", e))
   }
-
+  
+  const navigateToLibrary = (id) => {
+    setPage(pagesMapping.library)
+    setPayload({id: id})
+  }
   useEffect(() => {
     getBookDetails();
   }, []);
@@ -32,9 +38,8 @@ export default function Book(props) {
         Available at: 
         <ul>
         {bookDetails.libraries.map((loc) => {
-           return <li>
-          {loc}
-          <Library id={1}/>
+           return <li key={loc}>
+          <a onClick={() => navigateToLibrary(1) }>{loc}</a>
           </li>
         })}
         </ul>
