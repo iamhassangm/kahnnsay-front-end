@@ -9,14 +9,15 @@ export default function LibraryPage(props) {
   const API_URL = "http://localhost:3000/api/v1";
 
   const getBooks = () => {
-    axios.get(`${API_URL}/library/${props.id}/books`)
+    axios.get(`${API_URL}/libraries/${props.id}/book_ids`)
     .then((resp) => { setBooks(resp.data) })
     .catch((e) => console.log("Error from Book comp", e))
   }
   
   
   useEffect(() => {
-    getBooks();
+    getBooks()
+    // setBooks([{id: 1}, {id: 1}, {id: 1}])
   },[])
   
   return (

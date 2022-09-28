@@ -12,7 +12,7 @@ function App() {
      <h1>Search. Books.</h1>
     <>
      {(pagesMapping.home === page) && <SearchForm />}
-     {(pagesMapping.library === page) && <LibraryPage />}
+     {(pagesMapping.library === page) && <LibraryPage id={payload.id}/>}
     </>
     </div>
   );

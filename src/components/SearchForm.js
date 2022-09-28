@@ -10,7 +10,7 @@ export default function SearchForm(props) {
   
   const searchBooks = (q) => {
     const response = axios.post(`${APP_URL}/search_books?query=${q}`)
-    .then(rsp =>  {  setResults(rsp.data.query) } )
+    .then(rsp =>  {  setResults(rsp.data) } )
     .catch((e) => console.log(e));
   }
 

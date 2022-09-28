@@ -4,9 +4,9 @@ import Book from './Book'
 export default function BookList(props) {
   return (
     <div>
-        {props.books.map(book => {
+        {props.books.map(id => {
           return (
-            <Book id={book.id} key={book.id}/>
+            <Book id={id} key={id}/>
           );
         })}
     </div>

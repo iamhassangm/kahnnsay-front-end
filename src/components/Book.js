@@ -27,7 +27,7 @@ export default function Book(props) {
   if (!bookDetails) {
     return null;
   }
-  
+
   return(
     
     <div id={bookDetails.id} className="book">
