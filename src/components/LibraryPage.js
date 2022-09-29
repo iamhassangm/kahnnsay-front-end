@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import LibraryCard from './LibraryCard';
 import BookList from './BookList'
 import axios from 'axios';
+import { pagesMapping, RoutingContext } from '../context/Routing'
 
 export default function LibraryPage(props) {
+  const { setPage } = useContext(RoutingContext);
   const [books, setBooks] = useState([]);
   
   const API_URL = "http://localhost:3000/api/v1";
@@ -14,16 +16,19 @@ export default function LibraryPage(props) {
     .catch((e) => console.log("Error from Book comp", e))
   }
   
+  const navigateToHome = () => {
+    setPage(pagesMapping.home)
+  }
   
   useEffect(() => {
     getBooks()
-    // setBooks([{id: 1}, {id: 1}, {id: 1}])
   },[])
   
   return (
     <div>
-    <LibraryCard id={props.id} key={props.id}/>
-    <BookList books={books}/>
+      <a onClick={() => navigateToHome() }>&#8592; Home</a>
+      <LibraryCard id={props.id} key={props.id}/>
+      <BookList books={books}/>
     </div>
   )
 }
