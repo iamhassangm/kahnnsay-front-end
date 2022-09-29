@@ -29,22 +29,24 @@ export default function Book(props) {
   }
 
   return(
-    
-    <div id={bookDetails.id} className="book">
-      <h2>Title: {bookDetails.title}</h2>
-      <h3>ISBN: {bookDetails.isbn}</h3>
-      <h3>Author: {bookDetails.author}</h3>
-      <div>
-        Available at: 
-        <ul>
+    <div id={bookDetails.id}  class="text-left m-1 block rounded-md  bg-slate-100/80 border px-3 py-5 text-slate-800 hover:shadow-md hover:bg-slate-100">
+      <h3 class="mb-3 font-sans text-2xl font-semibold">{bookDetails.title}</h3>
+      <h5 class="text-xs text-slate-500">AUTHOR</h5>
+      <h5 class="mb-2 text-base font-bold">{bookDetails.author}</h5>
+
+      <h5 class="text-xs text-slate-500">ISBN</h5>
+      <h5 class="mb-2 text-base font-bold">{bookDetails.isbn}</h5>
+
+      <h5 class="text-xs text-slate-500">AVAILABLE AT</h5>
+      <ul class="ml-5 list-disc">
         {bookDetails.libraries.map((lib) => {
-           return <li key={lib.id}>
-          <a onClick={() => navigateToLibrary(lib.id) }>{lib.name}</a>
+           return <li class="list-item" key={lib.id}>
+          <a onClick={() => navigateToLibrary(lib.id) } class="hover:text-blue-800">{lib.name}</a>
           </li>
         })}
-        </ul>
-   
+        
+      </ul>
     </div>
-    </div>
+    
   )
 }

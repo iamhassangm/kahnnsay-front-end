@@ -9,7 +9,7 @@ function App() {
   const { page, payload } = useContext(RoutingContext)
   console.log(page)
   return (
-  <div className="App">
+  <div className="App bg-slate-100">
      <h1>Search. Books.</h1>
     <>
      {(pagesMapping.home === page) && <SearchForm />}
