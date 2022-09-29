@@ -20,14 +20,16 @@ export default function LibraryPage(props) {
     setPage(pagesMapping.home)
   }
   
-  useEffect(() => {
+  const loadBooks = () => {
     getBooks()
-  },[])
-  
+    
+  }
+
   return (
     <div>
       <a onClick={() => navigateToHome() }>&#8592; Home</a>
       <LibraryCard id={props.id} key={props.id}/>
+      <button onClick={() => loadBooks()}>Show All Books</button>
       <BookList books={books}/>
     </div>
   )
