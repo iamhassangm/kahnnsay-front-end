@@ -7,6 +7,7 @@ import { pagesMapping, RoutingContext } from '../context/Routing'
 export default function LibraryPage(props) {
   const { setPage } = useContext(RoutingContext);
   const [books, setBooks] = useState([]);
+  const [showBooks, toggleShowBooks] = useState(false);
   
   const API_URL = "http://localhost:3000/api/v1";
 
@@ -22,15 +23,20 @@ export default function LibraryPage(props) {
   
   const loadBooks = () => {
     getBooks()
-    
+    toggleShowBooks(true)
   }
+  
+  useEffect(() => {
+    toggleShowBooks(false)
+  }, [props.id])
+  console.log(showBooks)
 
   return (
     <div>
       <a onClick={() => navigateToHome() }>&#8592; Home</a>
       <LibraryCard id={props.id} key={props.id}/>
       <button onClick={() => loadBooks()}>Show All Books</button>
-      <BookList books={books}/>
+      {showBooks && <BookList books={books}/>}
     </div>
   )
 }
