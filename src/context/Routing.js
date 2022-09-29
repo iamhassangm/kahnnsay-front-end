@@ -1,4 +1,4 @@
-import React, { useState, useMemo, createContext } from 'react'
+import React, { useState, useEffect, useMemo, createContext } from 'react'
 /* Simple object which we use to set and 
  * identify the pages in our router 
  */
@@ -11,16 +11,19 @@ export const RoutingContext = createContext({ page: pagesMapping.home, payload: 
 
 export default function Router({ children }) {
   /* Read the urlPath, e.g. '/about' or '/' */
-  let urlPath = window.location.pathname.slice(1).toLowerCase()
+  let params = window.location.pathname.slice(1).split("/")
+  const urlPath = params[0]
+  const id = params[1]
   /* Set the default page to Home if not specified otherwise in the URL */
   
   const [page, setPage] = useState(urlPath || pagesMapping.home)
-  const [payload, setPayload] = useState(null)
+  const [payload, setPayload] = useState({id: id}|| null)
   
   const value = useMemo(
     () => ({ page, setPage, payload, setPayload }), 
     [page, setPage, payload, setPayload]
   )
+
   
   return (
     <RoutingContext.Provider value={value}>
