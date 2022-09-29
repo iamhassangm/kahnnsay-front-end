@@ -25,7 +25,7 @@ export default function LibraryCard(props) {
       <h2>Title: {libraryDetails.name}</h2>
       <h3>Location: Lat {libraryDetails.location.lat} Lon {libraryDetails.location.lon}</h3>
       <h3>Membership:
-       // {libraryDetails.membership}
+      {libraryDetails.membership}
        </h3>
     </div>
   )

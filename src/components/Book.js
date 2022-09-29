@@ -37,9 +37,9 @@ export default function Book(props) {
       <div>
         Available at: 
         <ul>
-        {bookDetails.libraries.map((loc) => {
-           return <li key={loc}>
-          <a onClick={() => navigateToLibrary(1) }>{loc}</a>
+        {bookDetails.libraries.map((lib) => {
+           return <li key={lib.id}>
+          <a onClick={() => navigateToLibrary(lib.id) }>{lib.name}</a>
           </li>
         })}
         </ul>
