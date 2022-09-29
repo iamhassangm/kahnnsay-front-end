@@ -7,6 +7,7 @@ import { pagesMapping, RoutingContext } from './context/Routing'
 
 function App() {
   const { page, payload } = useContext(RoutingContext)
+  console.log(page)
   return (
   <div className="App">
      <h1>Search. Books.</h1>
