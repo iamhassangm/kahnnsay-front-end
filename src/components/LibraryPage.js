@@ -17,9 +17,6 @@ export default function LibraryPage(props) {
     .catch((e) => console.log("Error from Book comp", e))
   }
   
-  const navigateToHome = () => {
-    setPage(pagesMapping.home)
-  }
   
   const loadBooks = () => {
     getBooks()
@@ -33,9 +30,7 @@ export default function LibraryPage(props) {
 
   return (
     <div>
-      <div className="flex flex-col p-5 bg-black text-white sticky top-0">
-        <a className="text-left hover:text-white/50 cursor-default mb-3" onClick={() => navigateToHome() }>
-          <span >&#8592;</span> Home</a>
+      <div className="flex flex-col p-5 bg-black text-white">
       <LibraryCard id={props.id} key={props.id}/>
       <button className="p-5 border border-2 border-white hover:border-white/50 hover:text-white/50 mt-3" onClick={() => loadBooks()}>Show All Books</button>
       </div>
