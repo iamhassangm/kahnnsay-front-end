@@ -33,9 +33,13 @@ export default function LibraryPage(props) {
 
   return (
     <div>
-      <a onClick={() => navigateToHome() }>&#8592; Home</a>
+      <div className="flex flex-col p-5 bg-black text-white">
+        <a className="text-left hover:text-white/50 cursor-default mb-3" onClick={() => navigateToHome() }>
+          <span >&#8592;</span> Home</a>
       <LibraryCard id={props.id} key={props.id}/>
-      <button onClick={() => loadBooks()}>Show All Books</button>
+      <button className="p-5 border border-2 border-white hover:border-white/50 hover:text-white/50 mt-3" onClick={() => loadBooks()}>Show All Books</button>
+      </div>
+    
       {showBooks && <BookList books={books}/>}
     </div>
   )

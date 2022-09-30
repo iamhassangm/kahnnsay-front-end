@@ -29,19 +29,19 @@ export default function Book(props) {
   }
 
   return(
-    <div id={bookDetails.id}  class="text-left m-1 block rounded-md  bg-slate-100/80 border px-3 py-5 text-slate-800 hover:shadow-md hover:bg-slate-100">
-      <h3 class="mb-3 font-sans text-2xl font-semibold">{bookDetails.title}</h3>
-      <h5 class="text-xs text-slate-500">AUTHOR</h5>
-      <h5 class="mb-2 text-base font-bold">{bookDetails.author}</h5>
+    <div id={bookDetails.id}  className="text-left m-1 block rounded-md  bg-slate-50/80 border px-3 py-5 text-slate-800 hover:shadow-md hover:bg-slate-100">
+      <h3 className="mb-3 font-sans text-2xl font-semibold">{bookDetails.title}</h3>
+      <h5 className="text-xs text-slate-500">AUTHOR</h5>
+      <h5 className="mb-2 text-base font-bold">{bookDetails.author}</h5>
 
-      <h5 class="text-xs text-slate-500">ISBN</h5>
-      <h5 class="mb-2 text-base font-bold">{bookDetails.isbn}</h5>
+      <h5 className="text-xs text-slate-500">ISBN</h5>
+      <h5 className="mb-2 text-base font-bold">{bookDetails.isbn}</h5>
 
-      <h5 class="text-xs text-slate-500">AVAILABLE AT</h5>
-      <ul class="ml-5 list-disc">
+      <h5 className="text-xs text-slate-500">AVAILABLE AT</h5>
+      <ul className="ml-5 list-disc">
         {bookDetails.libraries.map((lib) => {
-           return <li class="list-item" key={lib.id}>
-          <a onClick={() => navigateToLibrary(lib.id) } class="hover:text-blue-800">{lib.name}</a>
+           return <li className="list-item" key={lib.id}>
+          <a onClick={() => navigateToLibrary(lib.id) } className="hover:text-blue-800">{lib.name}</a>
           </li>
         })}
         

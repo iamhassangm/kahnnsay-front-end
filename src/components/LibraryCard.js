@@ -21,12 +21,17 @@ export default function LibraryCard(props) {
   }
   
   return (
-    <div id={props.id} className="library">
-      <h2>Title: {libraryDetails.name}</h2>
-      <h3>Location: Lat {libraryDetails.location.lat} Lon {libraryDetails.location.lon}</h3>
-      <h3>Membership:
-      {libraryDetails.membership}
-       </h3>
+    <div id={props.id} className="library text-white text-left">
+      <h3 className="mb-3 font-sans text-2xl font-semibold">{libraryDetails.name}</h3>
+    
+      <h5 className="text-xs text-white/80">LOCATION</h5>
+      <h5 className="mb-2 text-base font-bold">
+        LAT {libraryDetails.location.lat}, LON {libraryDetails.location.lon}
+      </h5>
+    
+      <h5 className="text-xs text-white/80">MEMBERSHIP</h5>
+      <h5 className="mb-2 text-base font-bold"> {libraryDetails.membership}</h5>
+
     </div>
   )
 }
