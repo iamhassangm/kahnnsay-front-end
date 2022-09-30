@@ -33,7 +33,7 @@ export default function LibraryPage(props) {
 
   return (
     <div>
-      <div className="flex flex-col p-5 bg-black text-white">
+      <div className="flex flex-col p-5 bg-black text-white sticky top-0">
         <a className="text-left hover:text-white/50 cursor-default mb-3" onClick={() => navigateToHome() }>
           <span >&#8592;</span> Home</a>
       <LibraryCard id={props.id} key={props.id}/>
