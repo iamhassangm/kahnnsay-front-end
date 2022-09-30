@@ -18,6 +18,7 @@ export default function SearchForm(props) {
     <div className="flex flex-col">
     <div className="bg-black py-4 text-white">
       <input className="flex-initial w-64 p-3 border border-white text-black"
+        placeholder="Search by book, author or isbn..."
         onChange={(e) => setQuery(e.target.value)}></input>
       <button className="flex-2 w-32  p-3 border border-white hover:text-white/50 hover:border-white/50 " 
         onClick={() => searchBooks(query)}>Search</button>
